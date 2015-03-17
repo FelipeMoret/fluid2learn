@@ -18,6 +18,7 @@ public class OrchestratorInteractive
 		System.out.println("Enquirer com Mordor...");
 		stat = new Statistics();
 		resp = new ResponderMaze(stat, "mordor");
+		
 		enq = new EnquirerMaze();
 		enq.connect(resp);
 		enq.discover();

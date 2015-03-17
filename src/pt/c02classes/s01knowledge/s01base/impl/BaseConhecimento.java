@@ -12,9 +12,9 @@ import pt.c02classes.s01knowledge.s01base.inter.IObjetoConhecimento;
 
 public class BaseConhecimento implements IBaseConhecimento
 {
-	public static final String DIRETORIO_RELATIVO = "../../s02app/bd",
+	public static final String DIRETORIO_RELATIVO = "/Users/Jose Renato/workspace/fluid2learn-master/bin/pt/c02classes/s01knowledge/s02app/bd",
 	                           EXTENSAO = ".txt";
-	private String diretorio = BaseConhecimento.class.getResource(DIRETORIO_RELATIVO).getPath();
+//	private String diretorio = BaseConhecimento.class.getResource(DIRETORIO_RELATIVO).getPath();
 	
 	private String scenario;
 	
@@ -24,7 +24,7 @@ public class BaseConhecimento implements IBaseConhecimento
 	
     public String[] listaNomes()
     {
-    	File diretorioRaiz = new File(diretorio + "/" + scenario);
+    	File diretorioRaiz = new File(DIRETORIO_RELATIVO + "/" + scenario);
         
         String lista[] = diretorioRaiz.list();
         Vector<String> listaFiltrada = new Vector<String>();
@@ -41,7 +41,7 @@ public class BaseConhecimento implements IBaseConhecimento
 		Vector<IDeclaracao> vdecl = new Vector<IDeclaracao>();
 
 		try {
-    		FileReader arquivo = new FileReader(diretorio + "/" + scenario + "/" + nome + EXTENSAO);
+			FileReader arquivo = new FileReader(DIRETORIO_RELATIVO + "/" + scenario + "/" + nome + EXTENSAO);
     		BufferedReader formatado = new BufferedReader(arquivo);
     	    
     	    String linha = formatado.readLine();
